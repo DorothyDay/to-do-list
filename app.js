@@ -20,6 +20,10 @@ function onReady() {
     renderTheUI();
   };
 
+  function deleteToDo(id) {
+      return toDos.filter(toDo => toDo.id !== id);
+    };
+
   function renderTheUI() {
     const toDoList = document.getElementById('toDoList');
 
@@ -33,11 +37,8 @@ function onReady() {
       const deleteBtn = document.createElement('Button');
       deleteBtn.textContent = "Delete!";
 
-      deleteBtn.addEventListener('click', event => {
-        toDos = toDos.filter(function(toDo){
-          return item.id !== toDo.id;
-          toDoList.removeChild(this.parentElement);
-        })
+      deleteBtn.addEventListener('click', () => {
+        toDos = deleteToDo(toDo.id);
         renderTheUI();
       });
 
