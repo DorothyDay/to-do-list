@@ -1,5 +1,5 @@
 function onReady() {
-  const toDos = [];
+  let toDos = [];
   const addToDoForm = document.getElementById('addToDoForm');
   let id = 0;
 
@@ -34,10 +34,10 @@ function onReady() {
       const checkbox = document.createElement('input');
       checkbox.type = "checkbox";
 
-      const deleteBtn = document.createElement('Button');
+      let deleteBtn = document.createElement('Button');
       deleteBtn.textContent = "Delete!";
 
-      deleteBtn.addEventListener('click', () => {
+      deleteBtn.addEventListener('click', event => {
         toDos = deleteToDo(toDo.id);
         renderTheUI();
       });
